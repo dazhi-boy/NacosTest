@@ -21,4 +21,18 @@ public class NamingUtils {
         }
         return serviceNameWithGroup.split(Constants.SERVICE_INFO_SPLITER)[0];
     }
+
+    public static String getGroupedNameOptional(final String serviceName, final String groupName) {
+        return groupName + Constants.SERVICE_INFO_SPLITER + serviceName;
+    }
+
+    public static String getServiceName(final String serviceNameWithGroup) {
+        if (StringUtils.isBlank(serviceNameWithGroup)) {
+            return StringUtils.EMPTY;
+        }
+        if (!serviceNameWithGroup.contains(Constants.SERVICE_INFO_SPLITER)) {
+            return serviceNameWithGroup;
+        }
+        return serviceNameWithGroup.split(Constants.SERVICE_INFO_SPLITER)[1];
+    }
 }

@@ -4,7 +4,9 @@ import com.dazhi.nacos.api.exception.runtime.NacosDeserializationException;
 import com.dazhi.nacos.api.exception.runtime.NacosSerializationException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
 
@@ -25,5 +27,13 @@ public class JacksonUtils {
         } catch (JsonProcessingException e) {
             throw new NacosSerializationException(obj.getClass(), e);
         }
+    }
+
+    public static ObjectNode createEmptyJsonNode() {
+        return new ObjectNode(mapper.getNodeFactory());
+    }
+
+    public static JsonNode transferToJsonNode(Object obj) {
+        return mapper.valueToTree(obj);
     }
 }

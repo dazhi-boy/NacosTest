@@ -9,4 +9,5 @@ public class Constants {
     public static final String NULL = "";
     public static final String DEFAULT_NAMESPACE_ID = "public";
     public static final String SERVICE_INFO_SPLITER = "@@";
+    public static final String ANY_PATTERN = ".*";
 }
